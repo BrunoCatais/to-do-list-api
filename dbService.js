@@ -25,8 +25,11 @@ class dbService {
     }
 
     async deleteListaById(id) {
-        let listaIndex = id-1
-        db.data.listas.splice(listaIndex, 1)
+        let listaToBeDeleted = db.data.listas.find(lista => lista.id === id)
+        db.data.listas = db.data.listas.filter(lista => lista !== listaToBeDeleted)
+
+        let tarefasToBeDeleted = db.data.tarefas.filter(tarefa => tarefa.listaId === id)
+        db.data.tarefas = db.data.tarefas.filter(tarefas => !tarefasToBeDeleted.includes(tarefas))
         await db.write()
     }
 
