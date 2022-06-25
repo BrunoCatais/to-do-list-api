@@ -1,0 +1,43 @@
+{
+  "tarefas": [
+    {
+      "id": 1,
+      "listaId": 1,
+      "nome": "asdds",
+      "descricao": "23132",
+      "data": "2022-06-01",
+      "etiqueta": "Trabalho",
+      "done": true
+    },
+    {
+      "id": 2,
+      "listaId": 1,
+      "nome": "sdadsa132",
+      "descricao": "dsadsa",
+      "data": "2022-06-30",
+      "etiqueta": "Trabalho",
+      "done": true
+    },
+    {
+      "id": 3,
+      "listaId": 1,
+      "nome": "matheus",
+      "descricao": "asd",
+      "data": "2022-06-23",
+      "etiqueta": "Trabalho",
+      "done": false
+    }
+  ],
+  "listas": [
+    {
+      "id": 1,
+      "nome": "Matheus",
+      "descricao": "dsadsa"
+    },
+    {
+      "id": 2,
+      "nome": "Lista muito louca",
+      "descricao": "adsdsa"
+    }
+  ]
+}

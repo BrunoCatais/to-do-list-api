@@ -58,6 +58,12 @@ app.delete('/api/listas/:listaId/tarefas/:tarefaId', (req, res) => {
     dbService.deleteTarefaByTarefaAndListaId(tarefaId, listaId).then(() => res.sendStatus(200))
 })
 
+app.put('/api/listas/:listaId/tarefas/:tarefaId', (req, res) =>{
+    let listaId = parseInt(req.params.listaId)
+    let tarefaId = parseInt(req.params.tarefaId)
+    dbService.toggleStatusTarefa(tarefaId, listaId).then(() => res.sendStatus(202))
+})
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

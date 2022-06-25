@@ -66,7 +66,8 @@ class dbService {
                 nome: nome,
                 descricao: descricao,
                 data: data,
-                etiqueta: etiqueta
+                etiqueta: etiqueta,
+                done: false,
             }
             db.data.tarefas.push(tarefa)
             await db.write()
@@ -86,6 +87,12 @@ class dbService {
     async deleteTarefaByTarefaAndListaId(tarefaId, listaId) {
         let tarefaToBeDeleted = db.data.tarefas.find(tarefa => tarefa.id === tarefaId && tarefa.listaId === listaId)
         db.data.tarefas = db.data.tarefas.filter(tarefa => tarefa !== tarefaToBeDeleted)
+        await db.write()
+    }
+
+    async toggleStatusTarefa(tarefaId, listaId) {
+        let tarefaIndex = db.data.tarefas.findIndex(tarefa => tarefa.id === tarefaId && tarefa.listaId === listaId)
+        db.data.tarefas[tarefaIndex].done = !db.data.tarefas[tarefaIndex].done
         await db.write()
     }
 }
